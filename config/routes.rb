@@ -3,13 +3,15 @@ Rails.application.routes.draw do
   root  'static_pages#index'
 
 
-  get   'static_pages/home'
+  get   'static_pages/settings'
 
   get   'static_pages/help'
 
 
+  devise_for :users
 
-
+  resources :users
+  resources :devise
 
 
 
