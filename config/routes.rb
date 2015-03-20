@@ -1,17 +1,35 @@
 Rails.application.routes.draw do
 
-  root  'static_pages#index'
 
+  root 'products#index'
+ 
 
-  get   'static_pages/settings'
+  get 'products/show'
 
-  get   'static_pages/help'
+  get 'products/new'
+
+  get 'products/create'
+
+  get 'products/edit'
+
+  get 'products/update'
+
+  get 'products/destroy'
+
+  get 'products/settings'
+
 
 
   devise_for :users
 
   resources :users
   resources :devise
+  resources :products
+
+
+  resources :posts do
+    resources :comments, except: [:index, :show]
+  end
 
 
 
